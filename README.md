@@ -1,5 +1,20 @@
 # Geohack: NDGI Project Geoharvester
 
+
+  * [Challenge 1 - Metadata quality control:](#challenge-1---metadata-quality-control)
+  * [Challenge 2 - Extend scraper with explorative search:](#challenge-2---extend-scraper-with-explorative-search)
+  * [Project stack:](#project-stack)
+  * [Setup / Deployment](#setup---deployment)
+    + [Frontend:](#frontend)
+    + [Backend:](#backend)
+      - [Troubleshooting:](#troubleshooting)
+        * [Cannot start the application](#cannot-start-the-application)
+        * [VSCode complains about missing imports](#vscode-complains-about-missing-imports)
+  * [API Documentation](#api-documentation)
+      - [SwaggerUI](#swaggerui)
+
+
+
 ## Challenge 1 - Metadata quality control:
 
 #### Context:
