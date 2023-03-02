@@ -1,6 +1,10 @@
 # NDGI Project Geoharvester
 
+#### Project stack:
+Stack diagram of the main project:
 ![Stack Diagram](https://user-images.githubusercontent.com/36440175/220350037-c8300e83-8d18-4962-b99a-54b75f5c886a.PNG)
+
+### Simplified stack for Geohack:
 
 The Geohack version of Geoharvester differs from this diagram:
 
@@ -8,6 +12,8 @@ The Geohack version of Geoharvester differs from this diagram:
 - Pandas dataframe instead of Redis database.
 
 To compensate for the lower performance of pandas compared to reddit, a row limit (see main.py) is set.
+
+![Stack Diagram](https://user-images.githubusercontent.com/36440175/222378450-290b82e0-f631-4628-987c-e6d67aae82ed.png)
 
 ## Deployment
 
@@ -23,8 +29,6 @@ To compensate for the lower performance of pandas compared to reddit, a row limi
 1. cd into frontend folder ("geoharvester_client")
 2. run `npm i` to install dependencies (from package.json)
 3. run `npm start` to start the fronted on localhost (`npm start` is defined in package.json)
-
----
 
 ### Backend:
 
