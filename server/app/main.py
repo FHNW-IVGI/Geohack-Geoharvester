@@ -3,12 +3,13 @@ import logging
 from typing import Union
 
 import pandas as pd
-from app.processing.methods import (import_csv_into_dataframe,
-                                    search_by_terms_dataframe,
-                                    split_search_string)
 from fastapi import FastAPI
 from fastapi.logger import logger as fastapi_logger
 from fastapi.middleware.cors import CORSMiddleware
+
+from app.processing.methods import (import_csv_into_dataframe,
+                                    search_by_terms_dataframe,
+                                    split_search_string)
 
 app = FastAPI(debug=True)
 
@@ -39,10 +40,13 @@ async def startup_event():
     """Startup Event: Load csv into data frame"""
     global dataframe
 
-    # To reduce traffic we load the file from ./tmp instead from Github.
-    url_geoservices_CH_csv = "app/tmp/geoservices_CH.csv"
+    # To increase performance, we use a subset of the full data, containing only WFS
+    url_geoservices_CH_csv = "app/tmp/geoservices_CH_WFSonly.csv" # about 6500 datasets
 
-    csv_row_limit= 5000 # Subset, to increase performance
+    # If you prefer to use the full data, use this file but adjust the csv_row_limit to a reasonable value, e.g. 5000
+    # url_geoservices_CH_csv = "app/tmp/geoservices_CH.csv" # about 23000 datasets
+    csv_row_limit= 50000 # Subset, to increase performance
+
     dataframe =  import_csv_into_dataframe(url_geoservices_CH_csv, csv_row_limit)
     
     fastapi_logger.warning("INFO:     Dataframe initialized with {} records".format(len(dataframe)))
